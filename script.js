@@ -53,7 +53,7 @@
             {
                 title: "Essentials of AI",
                 company: "Bano Qabil Sahiwal",
-                duration: "2025 — Present",
+                duration: "2026 — Present",
                 points: [
                     "Currently learning fundamentals of Artificial Intelligence and its practical applications",
                     "Working on AI-integrated assignments and small projects",
@@ -63,7 +63,7 @@
             {
                 title: "Front-End Development",
                 company: "Bano Qabil Sahiwal",
-                duration: "2024 — 2025",
+                duration: "2026",
                 points: [
                     "Completed intensive Front-End Development training",
                     "Built multiple responsive and interactive web projects",
@@ -73,7 +73,7 @@
             {
                 title: "Web Development",
                 company: "Bano Qabil Sahiwal",
-                duration: "2024",
+                duration: "2025-2026",
                 points: [
                     "Completed comprehensive Web Development course",
                     "Developed various websites through assignments and final projects",
