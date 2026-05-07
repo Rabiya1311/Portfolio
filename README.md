@@ -84,12 +84,12 @@ Experience data is stored in a plain JavaScript array in `script.js`. Add, edit,
 ```js
 const experiences = [
     {
-        title: "Your Role",
-        company: "Organization Name",
-        duration: "2024 — Present",
+        title: "Front-End Developer",
+        company: "Bano Qabil",
+        duration: "2026 — Present",
         points: [
-            "Key responsibility or achievement",
-            "Another achievement"
+            "Built multiple responsive and interactive web projects",
+            "Mastered HTML, CSS, Tailwind CSS, and JavaScript",
         ]
     }
 ];
