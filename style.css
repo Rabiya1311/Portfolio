@@ -43,3 +43,140 @@
         .accent-text {
             color: #64ffda;
         }
+
+
+
+
+/* Hero staggered reveal */
+.hero-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    animation: heroFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--d, 0ms);
+}
+
+@keyframes heroFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cursor blink */
+#typeCursor {
+    animation: cursorBlink 1s step-end infinite;
+}
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* Scroll line animation */
+.scroll-line {
+    animation: scrollDrop 1.8s ease-in-out infinite;
+}
+@keyframes scrollDrop {
+    0%   { top: -50%; }
+    100% { top: 150%; }
+}
+
+
+
+/* About pills */
+.about-pill {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #64ffda;
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid rgba(100, 255, 218, 0.18);
+    border-radius: 4px;
+    padding: 5px 12px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, border-color 0.2s;
+}
+.about-pill:hover {
+    background: rgba(100, 255, 218, 0.1);
+    border-color: rgba(100, 255, 218, 0.4);
+}
+
+/* Scroll reveal */
+.about-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.about-reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Experience tab active state */
+.exp-tab.active {
+    border-left-color: #64ffda !important;
+    background: rgba(100, 255, 218, 0.06);
+}
+.exp-tab.active span { color: #64ffda; }
+
+/* Experience scroll reveal */
+.exp-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exp-reveal.in { opacity: 1; transform: translateY(0); }
+
+
+/* Project badge */
+.proj-badge {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #64ffda;
+    background: rgba(10, 25, 47, 0.85);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: 4px;
+    padding: 3px 10px;
+    letter-spacing: 1.5px;
+}
+
+/* Project tech pills — reuses about-pill style */
+.proj-pill {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #64ffda;
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid rgba(100, 255, 218, 0.18);
+    border-radius: 4px;
+    padding: 4px 10px;
+    letter-spacing: 0.5px;
+}
+
+/* Project links */
+.proj-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #8892b0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.proj-link:hover { color: #64ffda; }
+
+/* Scroll reveal — same pattern as About/Experience */
+.proj-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.proj-reveal.in { opacity: 1; transform: translateY(0); }
+
+
+.contact-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.contact-reveal.in { opacity: 1; transform: translateY(0); }

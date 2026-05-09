@@ -9,312 +9,632 @@
    <link rel="stylesheet" href="./style.css">
 </head>
 <body class="bg-[#0a192f] text-slate-300">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a192f]/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-            <a href="#" class="text-2xl font-semibold heading-font text-white">Rabiya<span class="accent-text">.</span></a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
 
-            <!-- Mobile Hamburger -->
-            <button id="mobile-menu-button" class="md:hidden text-2xl">
-                <i class="fa-solid fa-bars"></i>
+   <!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a192f]/90 backdrop-blur-md border-b border-[#64ffda]/[0.08]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-1 group">
+            <span class="font-mono text-[#64ffda] text-sm font-medium opacity-60 group-hover:opacity-100 transition-opacity duration-200">&lt;</span>
+            <span class="font-mono text-[#ccd6f6] text-lg font-semibold tracking-tight group-hover:text-white transition-colors duration-200">RF</span>
+            <span class="font-mono text-[#64ffda] text-sm font-medium opacity-60 group-hover:opacity-100 transition-opacity duration-200">/&gt;</span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#about"      class="nav-link group flex items-center gap-1.5 font-mono text-[12px] tracking-wider text-slate-400 hover:text-[#64ffda] transition-colors duration-200">
+                <span class="text-[#64ffda] opacity-60 group-hover:opacity-100 transition-opacity">01.</span>About
+            </a>
+            <a href="#experience" class="nav-link group flex items-center gap-1.5 font-mono text-[12px] tracking-wider text-slate-400 hover:text-[#64ffda] transition-colors duration-200">
+                <span class="text-[#64ffda] opacity-60 group-hover:opacity-100 transition-opacity">02.</span>Experience
+            </a>
+            <a href="#projects"   class="nav-link group flex items-center gap-1.5 font-mono text-[12px] tracking-wider text-slate-400 hover:text-[#64ffda] transition-colors duration-200">
+                <span class="text-[#64ffda] opacity-60 group-hover:opacity-100 transition-opacity">03.</span>Projects
+            </a>
+            <a href="#contact"    class="nav-link group flex items-center gap-1.5 font-mono text-[12px] tracking-wider text-slate-400 hover:text-[#64ffda] transition-colors duration-200">
+                <span class="text-[#64ffda] opacity-60 group-hover:opacity-100 transition-opacity">04.</span>Contact
+            </a>
+            <a href="./resume.pdf" target="_blank"
+               class="font-mono text-[11px] tracking-[1.5px] text-[#64ffda] border border-[#64ffda]/35 rounded px-4 py-2 hover:bg-[#64ffda]/10 transition-colors duration-200">
+                Resume ↗
+            </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-button"
+                class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-[5px] rounded-lg border border-[#64ffda]/20 hover:bg-[#64ffda]/[0.06] transition-colors duration-200"
+                aria-label="Open menu">
+            <span class="w-[18px] h-[1.5px] bg-[#64ffda] rounded-full block transition-all duration-300" id="bar1"></span>
+            <span class="w-[18px] h-[1.5px] bg-[#64ffda] rounded-full block transition-all duration-300" id="bar2"></span>
+            <span class="w-[14px] h-[1.5px] bg-[#64ffda] rounded-full block self-end transition-all duration-300" id="bar3"></span>
+        </button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="drawer-overlay"
+         class="fixed inset-0 w-screen h-screen z-[9998] bg-[#020c1b]/70 backdrop-blur-sm
+                opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <!-- Drawer -->
+    <div id="mobile-menu"
+         class="fixed top-0 right-0 h-screen w-[78%] max-w-[300px] bg-[#0d2137]
+                border-l border-[#64ffda]/10 z-[9999] translate-x-full
+                transition-transform duration-[360ms] ease-[cubic-bezier(.4,0,.2,1)]
+                flex flex-col overflow-y-auto">
+
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between px-5 pt-6 pb-0">
+            <span class="font-mono text-[10px] font-semibold text-[#64ffda]/40 tracking-[2px] uppercase">Menu</span>
+            <button id="close-menu" aria-label="Close menu"
+                class="w-8 h-8 flex items-center justify-center rounded-lg
+                       border border-[#64ffda]/20 text-[#64ffda] text-sm
+                       hover:bg-[#64ffda]/10 hover:rotate-90 transition-all duration-200">
+                <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-[#0a192f] z-50 pt-20 px-6">
-            <div class="flex flex-col gap-6 text-lg">
-                <a href="#about" class="mobile-link">About</a>
-                <a href="#experience" class="mobile-link">Experience</a>
-                <a href="#projects" class="mobile-link">Projects</a>
-                <a href="#contact" class="mobile-link">Contact</a>
+        <div class="mx-5 mt-4 mb-2 h-px bg-[#64ffda]/10"></div>
+
+        <!-- Nav Links -->
+        <nav class="flex flex-col gap-0.5 px-4 flex-1 pt-2">
+            <a href="#about" class="mobile-link nav-item group flex items-center gap-3 px-3 py-3.5 rounded-xl
+                                    hover:bg-[#64ffda]/[0.06] transition-colors duration-200">
+                <span class="font-mono text-[10px] font-medium text-[#64ffda]/40 w-5 tabular-nums group-hover:text-[#64ffda]/80 transition-colors">01.</span>
+                <span class="flex-1 font-mono text-[14px] text-[#ccd6f6] group-hover:text-[#64ffda] transition-colors duration-200">About</span>
+                <span class="text-[#64ffda] text-xs opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">→</span>
+            </a>
+            <a href="#experience" class="mobile-link nav-item group flex items-center gap-3 px-3 py-3.5 rounded-xl
+                                         hover:bg-[#64ffda]/[0.06] transition-colors duration-200">
+                <span class="font-mono text-[10px] font-medium text-[#64ffda]/40 w-5 tabular-nums group-hover:text-[#64ffda]/80 transition-colors">02.</span>
+                <span class="flex-1 font-mono text-[14px] text-[#ccd6f6] group-hover:text-[#64ffda] transition-colors duration-200">Experience</span>
+                <span class="text-[#64ffda] text-xs opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">→</span>
+            </a>
+            <a href="#projects" class="mobile-link nav-item group flex items-center gap-3 px-3 py-3.5 rounded-xl
+                                       hover:bg-[#64ffda]/[0.06] transition-colors duration-200">
+                <span class="font-mono text-[10px] font-medium text-[#64ffda]/40 w-5 tabular-nums group-hover:text-[#64ffda]/80 transition-colors">03.</span>
+                <span class="flex-1 font-mono text-[14px] text-[#ccd6f6] group-hover:text-[#64ffda] transition-colors duration-200">Projects</span>
+                <span class="text-[#64ffda] text-xs opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">→</span>
+            </a>
+            <a href="#contact" class="mobile-link nav-item group flex items-center gap-3 px-3 py-3.5 rounded-xl
+                                      hover:bg-[#64ffda]/[0.06] transition-colors duration-200">
+                <span class="font-mono text-[10px] font-medium text-[#64ffda]/40 w-5 tabular-nums group-hover:text-[#64ffda]/80 transition-colors">04.</span>
+                <span class="flex-1 font-mono text-[14px] text-[#ccd6f6] group-hover:text-[#64ffda] transition-colors duration-200">Contact</span>
+                <span class="text-[#64ffda] text-xs opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">→</span>
+            </a>
+        </nav>
+
+        <!-- Drawer Footer -->
+        <div class="px-5 py-6 mt-auto border-t border-[#64ffda]/[0.08]">
+            <a href="./resume.pdf" target="_blank"
+               class="block w-full text-center py-2.5 mb-4 rounded-xl border border-[#64ffda]/30
+                      font-mono text-[11px] tracking-[1.5px] text-[#64ffda]
+                      hover:bg-[#64ffda]/[0.08] transition-colors duration-200">
+                Resume ↗
+            </a>
+            <div class="flex gap-3">
+                <a href="#" aria-label="GitHub"
+                   class="w-8 h-8 flex items-center justify-center rounded-lg border border-[#64ffda]/15
+                          text-[#8892b0] text-xs hover:text-[#64ffda] hover:border-[#64ffda]/40 transition-all duration-200">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" aria-label="LinkedIn"
+                   class="w-8 h-8 flex items-center justify-center rounded-lg border border-[#64ffda]/15
+                          text-[#8892b0] text-xs hover:text-[#64ffda] hover:border-[#64ffda]/40 transition-all duration-200">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
+    
+  <!-- Hero Section -->
+<section class="relative z-0 min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
 
-    <!-- Hero -->
-    <section class="min-h-screen flex items-center pt-20">
-        <div class="max-w-6xl mx-auto px-6 py-20">
-            <div class="max-w-3xl">
-                <p class="text-[#64ffda] text-lg mb-4">Hi, my name is</p>
-                <h1 class="text-6xl md:text-7xl font-bold text-white heading-font leading-tight mb-4">
-                    Rabiya Fatima
-                </h1>
-                <h2 class="text-5xl md:text-6xl text-slate-400 heading-font font-medium mb-8">
-                    Front-End Developer
-                </h2>
-                <p class="text-lg text-slate-400 max-w-lg mb-10">
-                    I build exceptional digital experiences with clean, modern, and user-friendly interfaces.
-                </p>
-                
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" 
-                       class="px-8 py-4 bg-transparent border-2 border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda] hover:text-[#0a192f] font-medium transition-all">
-                        View Projects
-                    </a>
-                    <a href="./resume.pdf" target="_blank"
-                       class="px-8 py-4 bg-[#64ffda] text-[#0a192f] rounded hover:bg-[#4fd3b8] font-medium transition-all">
-                        Download Resume
-                    </a>
+    <!-- Floating particles canvas -->
+    <canvas id="heroCanvas" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
+
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+
+        <!-- Badge -->
+        <div class="hero-reveal inline-flex items-center gap-2 px-5 py-2 mb-8 border border-[#64ffda]/25 rounded-full"
+             style="--d:100ms">
+            <span class="w-2 h-2 rounded-full bg-[#64ffda] animate-pulse"></span>
+            <span class="font-mono text-[11px] tracking-[2.5px] text-[#64ffda] uppercase">Frontend Developer</span>
+        </div>
+
+        <!-- Giant name -->
+        <h1 class="leading-[0.92] tracking-[-2px] mb-5">
+            <span class="hero-reveal block text-[clamp(64px,14vw,112px)] font-black text-[#ccd6f6]"
+                  style="--d:280ms">
+                RABI<span class="text-[#64ffda]">YA</span>
+            </span>
+            <span class="hero-reveal block text-[clamp(64px,14vw,112px)] font-black bg-gradient-to-r from-[#64ffda] via-[#a78bfa] to-[#f472b6] bg-clip-text text-transparent"
+                  style="--d:440ms">
+                FATIMA
+            </span>
+        </h1>
+
+        <!-- Typewriter row -->
+        <div class="hero-reveal font-mono text-[clamp(15px,3vw,20px)] text-[#8892b0] mb-6 min-h-[1.6em]"
+             style="--d:600ms">
+            I craft&nbsp;<span id="typeTarget" class="text-[#64ffda]"></span><span id="typeCursor"
+                class="inline-block w-[2px] h-[0.9em] bg-[#64ffda] ml-[2px] align-middle"></span>
+        </div>
+
+        <!-- Bio -->
+        <p class="hero-reveal text-[15px] text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed"
+           style="--d:760ms">
+            Passionate developer from <strong class="text-[#ccd6f6] font-medium">Lahore, Pakistan</strong> — 
+            building exceptional digital experiences with clean, modern, and user-friendly interfaces.
+        </p>
+
+        <!-- Buttons -->
+        <div class="hero-reveal flex flex-wrap gap-3 justify-center mb-14" style="--d:920ms">
+            <a href="#projects"
+               class="px-7 py-3.5 bg-[#64ffda] text-[#0a192f] font-mono text-[11px] font-bold tracking-[1.5px] uppercase rounded-md hover:bg-[#4fd3b8] transition-colors duration-200">
+                View Projects ↓
+            </a>
+            <a href="./resume.pdf" target="_blank"
+               class="px-7 py-3.5 border border-[#64ffda]/35 text-[#64ffda] font-mono text-[11px] tracking-[1.5px] uppercase rounded-md hover:bg-[#64ffda]/10 transition-colors duration-200">
+                Download Resume →
+            </a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-reveal flex flex-col items-center gap-2" style="--d:1100ms">
+            <span class="font-mono text-[10px] tracking-[2px] text-slate-500 uppercase">Scroll</span>
+            <div class="w-px h-10 bg-[#64ffda]/15 relative overflow-hidden rounded-full">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-[#64ffda] rounded-full scroll-line"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+   
+<!--About Section-->
+<section id="about" class="section py-28 bg-[#112240]">
+    <div class="max-w-6xl mx-auto px-6">
+
+        <!-- Section Header -->
+        <div class="flex items-center gap-4 mb-16 about-reveal">
+            <span class="font-mono text-[#64ffda] text-sm tracking-wider">01.</span>
+            <h2 class="text-3xl font-bold text-[#ccd6f6] tracking-tight">About Me</h2>
+            <div class="flex-1 h-px bg-[#64ffda]/12 max-w-xs"></div>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-20 items-start">
+
+            <!-- LEFT: Text + Stats + Skills -->
+            <div class="md:col-span-3 flex flex-col gap-7">
+
+                <!-- Inline code tag -->
+                <div class="about-reveal inline-flex items-center gap-2 font-mono text-[11px] text-[#64ffda] tracking-[1.5px] bg-[#64ffda]/[0.06] border border-[#64ffda]/15 rounded px-3 py-1.5 w-fit">
+                    <span class="opacity-60">// </span>who am i
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About -->
-    <section id="about" class="section py-24 bg-[#112240]">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-semibold text-white heading-font mb-12 flex items-center gap-4">
-                <span class="accent-text text-3xl">01.</span> About Me
-            </h2>
-            
-            <div class="grid md:grid-cols-5 gap-12 items-center">
-                <div class="md:col-span-3">
-                    <p class="text-slate-300 text-lg leading-relaxed mb-6">
-                        Passionate and detail-oriented aspiring Software Engineering student at University of Sahiwal. 
-                        Recently completed Intermediate education and currently building strong foundations in modern 
-                        web development, problem-solving, and creating elegant user interfaces.
+                <!-- Bio -->
+                <div class="flex flex-col gap-4">
+                    <p class="about-reveal text-[15px] text-slate-400 leading-[1.9]">
+                        Passionate and detail-oriented <span class="text-[#ccd6f6] font-medium">Software Engineering student</span> at University of Sahiwal — turning ideas into reality through clean code and thoughtful design.
                     </p>
-                    <p class="text-slate-300 text-lg leading-relaxed">
-                        I enjoy turning ideas into reality through clean code and thoughtful design. 
-                        Always eager to learn new technologies and improve my skills.
+                    <p class="about-reveal text-[15px] text-slate-400 leading-[1.9]">
+                        I build <span class="text-[#ccd6f6] font-medium">exceptional digital experiences</span> with a focus on performance, accessibility, and modern UI patterns. Always hungry to learn, always shipping.
                     </p>
-                    
-                    <!-- Skills -->
-                    <div class="mt-10">
-                        <h3 class="text-slate-400 mb-4">Technologies I work with:</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="skill-pill">HTML</span>
-                            <span class="skill-pill">CSS</span>
-                            <span class="skill-pill">Tailwind CSS</span>
-                            <span class="skill-pill">JavaScript</span>
-                            <span class="skill-pill">React</span>
-                            <span class="skill-pill">Figma</span>
-                            <span class="skill-pill">Git</span>
+                </div>
+
+                <!-- Stat Cards -->
+                <div class="about-reveal grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="stat-card relative bg-[#64ffda]/[0.04] border border-[#64ffda]/10 rounded-xl p-5 overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#64ffda] to-transparent"></div>
+                        <div class="font-mono text-[26px] font-bold text-[#64ffda] leading-none" id="cnt-projects">0+</div>
+                        <div class="text-[11px] text-slate-500 mt-2.5 tracking-wide">Projects Shipped</div>
+                    </div>
+                    <div class="stat-card relative bg-[#64ffda]/[0.04] border border-[#64ffda]/10 rounded-xl p-5 overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#64ffda] to-transparent"></div>
+                        <div class="font-mono text-[26px] font-bold text-[#64ffda] leading-none" id="cnt-tech">0+</div>
+                        <div class="text-[11px] text-slate-500 mt-2.5 tracking-wide">Technologies</div>
+                    </div>
+                    <div class="stat-card relative bg-[#64ffda]/[0.04] border border-[#64ffda]/10 rounded-xl p-5 overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#64ffda] to-transparent"></div>
+                        <div class="font-mono text-[26px] font-bold text-[#64ffda] leading-none" id="cnt-years">0yr</div>
+                        <div class="text-[11px] text-slate-500 mt-2.5 tracking-wide">Of Learning</div>
+                    </div>
+                    <div class="stat-card relative bg-[#64ffda]/[0.04] border border-[#64ffda]/10 rounded-xl p-5 overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#64ffda] to-transparent"></div>
+                        <div class="font-mono text-[26px] font-bold text-[#64ffda] leading-none">∞</div>
+                        <div class="text-[11px] text-slate-500 mt-2.5 tracking-wide">Curiosity Level</div>
+                    </div>
+                </div>
+
+                <!-- Skill Bars -->
+                <div class="about-reveal">
+                    <p class="font-mono text-[11px] tracking-[2px] text-slate-500 uppercase mb-5">Core Skills</p>
+                    <div class="flex flex-col gap-5">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-[13px] text-[#ccd6f6] font-medium">HTML & CSS</span>
+                                <span class="font-mono text-[11px] text-[#64ffda]">92%</span>
+                            </div>
+                            <div class="h-[3px] bg-white/[0.06] rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-[#64ffda] rounded-full w-0 transition-all duration-[1100ms] ease-out" data-width="92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-[13px] text-[#ccd6f6] font-medium">Tailwind CSS</span>
+                                <span class="font-mono text-[11px] text-[#64ffda]">88%</span>
+                            </div>
+                            <div class="h-[3px] bg-white/[0.06] rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-[#64ffda] rounded-full w-0 transition-all duration-[1100ms] ease-out" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-[13px] text-[#ccd6f6] font-medium">JavaScript</span>
+                                <span class="font-mono text-[11px] text-[#64ffda]">78%</span>
+                            </div>
+                            <div class="h-[3px] bg-white/[0.06] rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-[#64ffda] rounded-full w-0 transition-all duration-[1100ms] ease-out" data-width="78%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-[13px] text-[#ccd6f6] font-medium">React</span>
+                                <span class="font-mono text-[11px] text-[#64ffda]">70%</span>
+                            </div>
+                            <div class="h-[3px] bg-white/[0.06] rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-[#64ffda] rounded-full w-0 transition-all duration-[1100ms] ease-out" data-width="70%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="md:col-span-2 flex justify-center">
-                    <div class="w-72 h-72 rounded-xl overflow-hidden border-2 border-[#64ffda]/30">
-                        <img src="./images/profile.jpg" 
-                             alt="Rabiya Fatima" 
-                             class="w-full h-full object-cover">
+
+                <!-- Tech Pills -->
+                <div class="about-reveal">
+                    <p class="font-mono text-[11px] tracking-[2px] text-slate-500 uppercase mb-4">Tech Stack</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="about-pill">HTML5</span>
+                        <span class="about-pill">CSS3</span>
+                        <span class="about-pill">Tailwind</span>
+                        <span class="about-pill">JavaScript</span>
+                        <span class="about-pill">React</span>
+                        <span class="about-pill">Figma</span>
+                        <span class="about-pill">Git</span>
+                        <span class="about-pill">GitHub</span>
                     </div>
                 </div>
+
+            </div>
+
+            <!-- RIGHT: Photo + Info Cards -->
+            <div class="md:col-span-2 flex flex-col gap-5">
+
+                <!-- Photo frame -->
+                <div class="about-reveal relative">
+                    <div class="relative rounded-2xl border border-[#64ffda]/20 bg-gradient-to-br from-[#64ffda]/10 to-[#64ffda]/[0.03] overflow-hidden aspect-square flex items-center justify-center">
+                        <span class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#64ffda]/50 rounded-tl-sm"></span>
+                        <span class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#64ffda]/50 rounded-tr-sm"></span>
+                        <span class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#64ffda]/50 rounded-bl-sm"></span>
+                        <span class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#64ffda]/50 rounded-br-sm"></span>
+                        <img src="./images/profile.jpg" alt="Rabiya Fatima"
+                             class="w-full h-full object-cover"
+                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="hidden flex-col items-center gap-3 p-6">
+                            <div class="w-20 h-20 rounded-full bg-[#64ffda]/10 border-2 border-[#64ffda]/25 flex items-center justify-center font-mono text-2xl font-bold text-[#64ffda]">RF</div>
+                            <span class="text-[#ccd6f6] font-semibold text-base">Rabiya Fatima</span>
+                            <span class="font-mono text-[11px] text-[#64ffda] tracking-widest">Frontend Dev</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-3 -right-3 w-16 h-16 opacity-40"
+                         style="background-image:radial-gradient(circle,#64ffda 1px,transparent 1px);background-size:7px 7px"></div>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="about-reveal flex flex-col gap-3">
+                    <div class="flex items-center gap-3 bg-[#0d2137] border border-[#64ffda]/10 rounded-xl px-4 py-4 hover:border-[#64ffda]/30 transition-colors duration-200">
+                        <div class="w-9 h-9 rounded-lg bg-[#64ffda]/[0.08] flex items-center justify-center text-[#64ffda] flex-shrink-0">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 3L2 9l10 6 10-6-10-6zM2 17l10 6 10-6M2 13l10 6 10-6"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 tracking-wide uppercase mb-1">Education</div>
+                            <div class="text-[13px] text-[#ccd6f6] font-medium">University of Sahiwal</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-[#0d2137] border border-[#64ffda]/10 rounded-xl px-4 py-4 hover:border-[#64ffda]/30 transition-colors duration-200">
+                        <div class="w-9 h-9 rounded-lg bg-[#64ffda]/[0.08] flex items-center justify-center text-[#64ffda] flex-shrink-0">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 tracking-wide uppercase mb-1">Location</div>
+                            <div class="text-[13px] text-[#ccd6f6] font-medium">Sahiwal, Pakistan</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-[#0d2137] border border-[#64ffda]/10 rounded-xl px-4 py-4 hover:border-[#64ffda]/30 transition-colors duration-200">
+                        <div class="w-9 h-9 rounded-lg bg-[#64ffda]/[0.08] flex items-center justify-center text-[#64ffda] flex-shrink-0">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 tracking-wide uppercase mb-1">Focus</div>
+                            <div class="text-[13px] text-[#ccd6f6] font-medium">Frontend & UI Engineering</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-[#0d2137] border border-[#64ffda]/10 rounded-xl px-4 py-4 hover:border-[#64ffda]/30 transition-colors duration-200">
+                        <div class="w-9 h-9 rounded-lg bg-[#64ffda]/[0.08] flex items-center justify-center text-[#64ffda] flex-shrink-0">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-500 tracking-wide uppercase mb-1">Available For</div>
+                            <div class="text-[13px] text-[#ccd6f6] font-medium">Front-End Engineer & Internships</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
-
-
+    </div>
+</section>
 
     <!-- Experience -->
-    <section id="experience" class="section py-24">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-4xl font-semibold text-white heading-font mb-16 flex items-center gap-4">
-                <span class="accent-text text-3xl">02.</span> Experience
-            </h2>
-            
-            <div class="grid md:grid-cols-12 gap-10 lg:gap-16">
-                
-                <!-- Left Sidebar - Experience List -->
-                <div class="md:col-span-4">
-                    <div class="flex flex-col space-y-2" id="experience-tabs">
-                        <button onclick="showExperience(0)" class="tab-button active flex items-center gap-4 text-left p-4 rounded-lg hover:bg-slate-800 transition-colors">
-                            <span class="text-[#64ffda] font-medium">01</span>
-                            <div>
-                                <p class="text-white font-medium">Essentials of AI</p>
-                                <p class="text-slate-400 text-sm">Bano Qabil Sahiwal</p>
-                            </div>
-                        </button>
-                        
-                        <button onclick="showExperience(1)" class="tab-button flex items-center gap-4 text-left p-4 rounded-lg hover:bg-slate-800 transition-colors">
-                            <span class="text-[#64ffda] font-medium">02</span>
-                            <div>
-                                <p class="text-white font-medium">Front-End Development</p>
-                                <p class="text-slate-400 text-sm">Bano Qabil Sahiwal</p>
-                            </div>
-                        </button>
-                        
-                        <button onclick="showExperience(2)" class="tab-button flex items-center gap-4 text-left p-4 rounded-lg hover:bg-slate-800 transition-colors">
-                            <span class="text-[#64ffda] font-medium">03</span>
-                            <div>
-                                <p class="text-white font-medium">Web Development</p>
-                                <p class="text-slate-400 text-sm">Bano Qabil Sahiwal</p>
-                            </div>
-                        </button>
-                    </div>
-                </div>
+<!-- Experience Section -->
+<section id="experience" class="section py-28">
+    <div class="max-w-5xl mx-auto px-6">
 
-                <!-- Right Side - Experience Details -->
-                <div class="md:col-span-8" id="experience-content">
-                    <!-- Content will be loaded by JavaScript -->
-                </div>
-            </div>
+        <!-- Section Header — matches About style -->
+        <div class="flex items-center gap-4 mb-14 exp-reveal">
+            <span class="font-mono text-[#64ffda] text-sm tracking-wider">02.</span>
+            <h2 class="text-3xl font-bold text-[#ccd6f6] tracking-tight">Experience</h2>
+            <div class="flex-1 h-px bg-[#64ffda]/12 max-w-xs"></div>
         </div>
-    </section>
+
+        <div class="grid md:grid-cols-[200px_1fr] gap-0 exp-reveal">
+
+            <!-- Tab Sidebar -->
+            <div class="flex flex-col border-l-2 border-[#64ffda]/12" id="experience-tabs">
+                <button onclick="showExp(0)" data-tab="0"
+                    class="exp-tab active text-left px-5 py-4 border-l-2 border-transparent -ml-[2px] hover:bg-[#64ffda]/[0.04] transition-colors duration-200">
+                    <span class="block font-mono text-[10px] tracking-[2px] text-[#64ffda]/40 mb-1">01.</span>
+                    <span class="font-mono text-[12px] text-[#8892b0] tracking-wide">Essentials of AI</span>
+                </button>
+                <button onclick="showExp(1)" data-tab="1"
+                    class="exp-tab text-left px-5 py-4 border-l-2 border-transparent -ml-[2px] hover:bg-[#64ffda]/[0.04] transition-colors duration-200">
+                    <span class="block font-mono text-[10px] tracking-[2px] text-[#64ffda]/40 mb-1">02.</span>
+                    <span class="font-mono text-[12px] text-[#8892b0] tracking-wide">Front-End Dev</span>
+                </button>
+                <button onclick="showExp(2)" data-tab="2"
+                    class="exp-tab text-left px-5 py-4 border-l-2 border-transparent -ml-[2px] hover:bg-[#64ffda]/[0.04] transition-colors duration-200">
+                    <span class="block font-mono text-[10px] tracking-[2px] text-[#64ffda]/40 mb-1">03.</span>
+                    <span class="font-mono text-[12px] text-[#8892b0] tracking-wide">Web Development</span>
+                </button>
+            </div>
+
+            <!-- Content Panel -->
+            <div class="pl-12" id="experience-content"></div>
+        </div>
+    </div>
+</section>
 
 
     <!-- Projects -->
-    <section id="projects" class="section py-24 bg-[#112240]">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-4xl font-semibold text-white heading-font mb-16 flex items-center gap-4">
-                <span class="accent-text text-3xl">03.</span> Projects
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <!-- Project 1 -->
-                <div class="project-card bg-[#0a192f] border border-slate-700 rounded-2xl overflow-hidden">
-                    <img src="./images/project-1.png" 
-                         alt="Login Dashboard" 
-                         class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Login Dashboard</h3>
-                        <p class="text-[#64ffda] mb-4">Personal Project</p>
-                        <p class="text-slate-400 mb-6">
-                            A clean and responsive login dashboard with email validation, 
-                            password strength checker, and remember me functionality.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">HTML</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">Tailwind CSS</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">JavaScript</span>
-                        </div>
-                        <div class="flex gap-6 text-sm">
-                            <a href=" https://bq-store-8ba77-8ba77.web.app" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-solid fa-up-right-from-square"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/Rabiya1311/bq-store" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<!-- Projects Section -->
+<section id="projects" class="section py-28 bg-[#112240]">
+    <div class="max-w-5xl mx-auto px-6">
 
-                <!-- Project 2 -->
-                <div class="project-card bg-[#0a192f] border border-slate-700 rounded-2xl overflow-hidden">
-                    <img src="./images/project-4.png" 
-                         alt="University of Sahiwal Website" 
-                         class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold text-white mb-2">University of Sahiwal</h3>
-                        <p class="text-[#64ffda] mb-4">University Project</p>
-                        <p class="text-slate-400 mb-6">
-                            Official website for University of Sahiwal single page, 
-                            responsive design and smooth navigation.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">HTML</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">CSS</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">Tailwind</span>
-                        </div>
-                        <div class="flex gap-6 text-sm">
-                            <a href="#" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-solid fa-up-right-from-square"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/Rabiya1311/University-of-Sahiwal/tree/main" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card bg-[#0a192f] border border-slate-700 rounded-2xl overflow-hidden">
-                    <img src="./images/project-3.png" 
-                         alt="Clothing Website" 
-                         class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold text-white mb-2">Clothing Store</h3>
-                        <p class="text-[#64ffda] mb-4">Personal Project</p>
-                        <p class="text-slate-400 mb-6">
-                            Modern e-commerce website for clothing brand with product grid, 
-                            filtering, and cart preview.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">HTML</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full"> CSS</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">JavaScript</span>
-                        </div>
-                        <div class="flex gap-6 text-sm">
-                            <a href="#" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-solid fa-up-right-from-square"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/Rabiya1311/Clothing-Store" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card bg-[#0a192f] border border-slate-700 rounded-2xl overflow-hidden">
-                    <img src="./images/project-2.png" 
-                         alt="To Do List" 
-                         class="w-full h-56 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-semibold text-white mb-2">To-Do List</h3>
-                        <p class="text-[#64ffda] mb-4">Personal Project</p>
-                        <p class="text-slate-400 mb-6">
-                            Clean and interactive task management app with add, delete, 
-                            filter and local storage functionality.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">HTML</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full"> CSS</span>
-                            <span class="text-xs px-4 py-2 bg-slate-800 rounded-full">JavaScript</span>
-                        </div>
-                        <div class="flex gap-6 text-sm">
-                            <a href="#" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-solid fa-up-right-from-square"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/Rabiya1311/To-Do-List" target="_blank" class="accent-text hover:underline flex items-center gap-2">
-                                <i class="fa-brands fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <!-- Section Header -->
+        <div class="flex items-center gap-4 mb-14 proj-reveal">
+            <span class="font-mono text-[#64ffda] text-sm tracking-wider">03.</span>
+            <h2 class="text-3xl font-bold text-[#ccd6f6] tracking-tight">Projects</h2>
+            <div class="flex-1 h-px bg-[#64ffda]/12 max-w-xs"></div>
         </div>
-    </section>
 
+        <div class="grid md:grid-cols-2 gap-5">
+
+            <!-- Project 1 -->
+            <div class="proj-card proj-reveal group bg-[#0a192f] border border-[#64ffda]/10 rounded-2xl overflow-hidden flex flex-col hover:border-[#64ffda]/35 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative overflow-hidden h-52 bg-[#0d2137] border-b border-[#64ffda]/08">
+                    <img src="./images/project-1.png" alt="Login Dashboard"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.style.display='none'">
+                    <span class="proj-badge absolute top-3 left-3">Personal Project</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 gap-3">
+                    <h3 class="font-mono text-base font-bold text-[#ccd6f6] tracking-tight">Login Dashboard</h3>
+                    <p class="font-mono text-[12px] text-slate-400 leading-[1.85] tracking-[0.2px]">
+                        A clean, responsive login dashboard with email validation, password strength checker, and remember me functionality.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mt-1">
+                        <span class="proj-pill">HTML</span>
+                        <span class="proj-pill">Tailwind CSS</span>
+                        <span class="proj-pill">JavaScript</span>
+                    </div>
+                    <div class="proj-links flex gap-5 mt-auto pt-4 border-t border-[#64ffda]/08">
+                        <a href="https://bq-store-8ba77-8ba77.web.app" target="_blank" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Rabiya1311/bq-store" target="_blank" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="proj-card proj-reveal group bg-[#0a192f] border border-[#64ffda]/10 rounded-2xl overflow-hidden flex flex-col hover:border-[#64ffda]/35 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative overflow-hidden h-52 bg-[#0d2137] border-b border-[#64ffda]/08">
+                    <img src="./images/project-4.png" alt="University of Sahiwal"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.style.display='none'">
+                    <span class="proj-badge absolute top-3 left-3">University Project</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 gap-3">
+                    <h3 class="font-mono text-base font-bold text-[#ccd6f6] tracking-tight">University of Sahiwal</h3>
+                    <p class="font-mono text-[12px] text-slate-400 leading-[1.85] tracking-[0.2px]">
+                        Official single-page website for University of Sahiwal with responsive design and smooth navigation.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mt-1">
+                        <span class="proj-pill">HTML</span>
+                        <span class="proj-pill">CSS</span>
+                        <span class="proj-pill">Tailwind</span>
+                    </div>
+                    <div class="proj-links flex gap-5 mt-auto pt-4 border-t border-[#64ffda]/08">
+                        <a href="#" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Rabiya1311/University-of-Sahiwal/tree/main" target="_blank" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="proj-card proj-reveal group bg-[#0a192f] border border-[#64ffda]/10 rounded-2xl overflow-hidden flex flex-col hover:border-[#64ffda]/35 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative overflow-hidden h-52 bg-[#0d2137] border-b border-[#64ffda]/08">
+                    <img src="./images/project-3.png" alt="Clothing Store"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.style.display='none'">
+                    <span class="proj-badge absolute top-3 left-3">Personal Project</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 gap-3">
+                    <h3 class="font-mono text-base font-bold text-[#ccd6f6] tracking-tight">Clothing Store</h3>
+                    <p class="font-mono text-[12px] text-slate-400 leading-[1.85] tracking-[0.2px]">
+                        Modern e-commerce website for a clothing brand with product grid, filtering, and cart preview.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mt-1">
+                        <span class="proj-pill">HTML</span>
+                        <span class="proj-pill">CSS</span>
+                        <span class="proj-pill">JavaScript</span>
+                    </div>
+                    <div class="proj-links flex gap-5 mt-auto pt-4 border-t border-[#64ffda]/08">
+                        <a href="#" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Rabiya1311/Clothing-Store" target="_blank" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="proj-card proj-reveal group bg-[#0a192f] border border-[#64ffda]/10 rounded-2xl overflow-hidden flex flex-col hover:border-[#64ffda]/35 transition-all duration-300 hover:-translate-y-1">
+                <div class="relative overflow-hidden h-52 bg-[#0d2137] border-b border-[#64ffda]/08">
+                    <img src="./images/project-2.png" alt="To-Do List"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.style.display='none'">
+                    <span class="proj-badge absolute top-3 left-3">Personal Project</span>
+                </div>
+                <div class="p-6 flex flex-col flex-1 gap-3">
+                    <h3 class="font-mono text-base font-bold text-[#ccd6f6] tracking-tight">To-Do List</h3>
+                    <p class="font-mono text-[12px] text-slate-400 leading-[1.85] tracking-[0.2px]">
+                        Clean, interactive task management app with add, delete, filter, and local storage persistence.
+                    </p>
+                    <div class="flex flex-wrap gap-1.5 mt-1">
+                        <span class="proj-pill">HTML</span>
+                        <span class="proj-pill">CSS</span>
+                        <span class="proj-pill">JavaScript</span>
+                    </div>
+                    <div class="proj-links flex gap-5 mt-auto pt-4 border-t border-[#64ffda]/08">
+                        <a href="#" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/Rabiya1311/To-Do-List" target="_blank" class="proj-link">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
   
-    <!-- Contact -->
-    <section id="contact" class="section py-24">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-semibold text-white heading-font mb-6">Get In Touch</h2>
-            <p class="text-slate-400 max-w-md mx-auto mb-10">
-                I'm currently looking for new opportunities. Whether you have a question or just want to say hi, feel free to reach out.
-            </p>
-            
-            <a href="mailto:rabiyafatima1311@gmail.com" 
-               class="inline-block px-10 py-5 border-2 border-[#64ffda] text-[#64ffda] rounded hover:bg-[#64ffda] hover:text-[#0a192f] transition-all text-lg">
-                Say Hello
-            </a>
 
-            <div class="mt-16 flex justify-center gap-8 text-2xl">
-                <a href="https://github.com/Rabiya1311" class="hover:text-[#64ffda] transition-colors"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/rabiya-fatima-03b806408/" class="hover:text-[#64ffda] transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://x.com/riba1311" class="hover:text-[#64ffda] transition-colors"><i class="fa-brands fa-twitter"></i></a>
-               
-            </div>
+   <!-- Contact Section -->
+<section id="contact" class="section py-28">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+
+        <!-- Section Header -->
+        <div class="flex items-center justify-center gap-4 mb-5 contact-reveal">
+            <span class="font-mono text-[#64ffda] text-sm tracking-wider">04.</span>
+            <h2 class="text-3xl font-bold text-[#ccd6f6] tracking-tight">Get In Touch</h2>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
-        <p>© 2026 Rabiya Fatima. All Rights Reserved.</p>
-    </footer>
+        <!-- Eyebrow -->
+        <span class="contact-reveal block font-mono text-[10px] tracking-[3px] text-[#64ffda] mb-5">
+            // what's next
+        </span>
 
+        <!-- Description -->
+        <p class="contact-reveal font-mono text-[12px] text-slate-400 leading-[1.9] tracking-[0.3px] max-w-md mx-auto mb-9">
+            I'm currently looking for new opportunities. Whether you have a question, a project idea, or just want to say hi — my inbox is always open.
+        </p>
+
+        <!-- CTA Button -->
+        <div class="contact-reveal mb-14">
+            <a href="mailto:rabiyafatima1311@gmail.com"
+               class="inline-flex items-center gap-2 font-mono text-[11px] font-bold tracking-[2px] text-[#64ffda]
+                      border border-[#64ffda]/35 rounded-md px-9 py-3.5
+                      hover:bg-[#64ffda]/[0.08] hover:border-[#64ffda]/60 transition-all duration-200">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Say Hello ↗
+            </a>
+        </div>
+
+        <!-- Divider -->
+        <div class="contact-reveal h-px bg-[#64ffda]/08 mb-9 max-w-xs mx-auto"></div>
+
+        <!-- Social Icons -->
+        <div class="contact-reveal flex justify-center gap-3 mb-16">
+            <a href="https://github.com/Rabiya1311" target="_blank" aria-label="GitHub"
+               class="w-10 h-10 flex items-center justify-center rounded-xl border border-[#64ffda]/15
+                      text-[#8892b0] hover:text-[#64ffda] hover:border-[#64ffda]/40 hover:bg-[#64ffda]/[0.05]
+                      transition-all duration-200">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/rabiya-fatima-03b806408/" target="_blank" aria-label="LinkedIn"
+               class="w-10 h-10 flex items-center justify-center rounded-xl border border-[#64ffda]/15
+                      text-[#8892b0] hover:text-[#64ffda] hover:border-[#64ffda]/40 hover:bg-[#64ffda]/[0.05]
+                      transition-all duration-200">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/>
+                    <circle cx="4" cy="4" r="2"/>
+                </svg>
+            </a>
+            <a href="https://x.com/riba1311" target="_blank" aria-label="X / Twitter"
+               class="w-10 h-10 flex items-center justify-center rounded-xl border border-[#64ffda]/15
+                      text-[#8892b0] hover:text-[#64ffda] hover:border-[#64ffda]/40 hover:bg-[#64ffda]/[0.05]
+                      transition-all duration-200">
+                <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-[#64ffda]/08 py-6">
+    <div class="flex flex-col items-center gap-1.5">
+        <span class="font-mono text-[13px] text-[#64ffda] tracking-wider">&lt;RF /&gt;</span>
+        <span class="font-mono text-[10px] text-slate-500 tracking-[1.5px]">© 2026 Rabiya Fatima · All Rights Reserved</span>
+    </div>
+</footer>
     <script src="./script.js" defer > </script>
 </body>
 </html>
